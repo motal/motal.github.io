@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 22 Nov 2020 23:31:56 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Nov 2020 07:32:03 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Format Test</title>
+      <link>https://motal.github.io/post/code-format-test/</link>
+      <pubDate>Mon, 23 Nov 2020 07:32:03 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/code-format-test/</guid>
+      <description>코드 코드 포맷이 잘 적용되는지 테스트 해본다.
+package main import &amp;quot;fmt&amp;quot; func main() { fmt.Println(&amp;quot;만나서 반갑습니다&amp;quot;) }  리스트 리스트가 잘 되는지 확인해본다.
+ 사과 바나나 포도  링크 링크가 잘 되는지 테스트해본다.
+ 구글 네이버  </description>
+    </item>
+    
     <item>
       <title>처음 글</title>
       <link>https://motal.github.io/post/the-beginning/</link>
