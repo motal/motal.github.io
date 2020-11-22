@@ -3,22 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://motal.github.io/post/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/post/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://motal.github.io/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-22T23:31:56+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://motal.github.io/post/</loc>
+    <lastmod>2020-11-22T23:31:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/post/the-beginning/</loc>
+    <lastmod>2020-11-22T23:31:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/post/creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -75,6 +75,11 @@
   <url>
     <loc>https://motal.github.io/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/post/migrate-from-jekyll/</loc>
+    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
