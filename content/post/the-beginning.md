@@ -1,5 +1,5 @@
 ---
-title: "The Beginning"
+title: "처음 글"
 date: 2020-11-22T23:31:56+09:00
 draft: false
 ---
