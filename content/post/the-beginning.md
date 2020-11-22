@@ -1,7 +1,7 @@
 ---
 title: "The Beginning"
 date: 2020-11-22T23:31:56+09:00
-draft: true
+draft: false
 ---
 
 # 처음 글
