@@ -6,6 +6,7 @@ author = "Doa"
 copyright = "&copy; 2020. All rights reserved."
 canonifyurls = true
 paginate = 10
+publishDir = "../_site"
 
 [indexes]
   tag = "tags"
