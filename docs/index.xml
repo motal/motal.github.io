@@ -9,6 +9,18 @@
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
     <lastBuildDate>Mon, 23 Nov 2020 07:32:03 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About</title>
+      <link>https://motal.github.io/about/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://motal.github.io/about/</guid>
+      <description>  Java world에 살고 있는 Go 개발자
+  새로운 프로그래밍 언어 배우기를 좋아하고, 투자에 관심 많다.
+  무계획이 때로는 계획보다 낫다.
+  </description>
+    </item>
+    
+    <item>
       <title>Code Format Test</title>
       <link>https://motal.github.io/post/code-format-test/</link>
       <pubDate>Mon, 23 Nov 2020 07:32:03 +0900</pubDate>
@@ -37,19 +49,6 @@ package main import &amp;quot;fmt&amp;quot; func main() { fmt.Println(&amp;quot;
       <guid>https://motal.github.io/post/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://motal.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://motal.github.io/about/</guid>
-      <description>Hugo is a static site engine written in Go.
-It makes use of a variety of open source projects including:
- Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.
-Setup Some fun facts about Hugo:
- Built in Go Loosely inspired by Jekyll Primarily developed by spf13 on the train while commuting to and from Manhattan. Coded in Vim using spf13-vim  Have questions or suggestions?</description>
     </item>
     
     <item>
