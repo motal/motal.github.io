@@ -1,31 +1,13 @@
 +++
 title = "About"
-date = "2014-04-09"
+date = "2020-11-23"
 sidemenu = "true"
-description = "About me and this site"
+description = "저에 대해 소개합니다"
 +++
 
-Hugo is a static site engine written in Go.
+- Java world에 살고 있는 Go 개발자
 
+- 새로운 프로그래밍 언어 배우기를 좋아하고, 투자에 관심 많다.
 
-It makes use of a variety of open source projects including:
+- 무계획이 때로는 계획보다 낫다.
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
-
-Learn more and contribute on [GitHub](https://github.com/spf13).
-
-## Setup
-
-Some fun facts about [Hugo](http://gohugo.io/):
-
-* Built in [Go](http://golang.org/)
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
-
-Thanks for reading!
