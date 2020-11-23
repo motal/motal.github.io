@@ -1,6 +1,11 @@
 ---
 title: "왜 Go를 사용하는가"
 date: 2020-11-23T12:18:39+09:00
+tags: [
+    "go",
+    "golang",
+    "development",
+]
 draft: false
 ---
 
