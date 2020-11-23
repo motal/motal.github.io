@@ -3,12 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://motal.github.io/tags/development/</loc>
-    <lastmod>2020-11-23T12:18:39+09:00</lastmod>
+    <loc>https://motal.github.io/</loc>
+    <lastmod>2020-11-24T07:13:24+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://motal.github.io/</loc>
+    <loc>https://motal.github.io/post/</loc>
+    <lastmod>2020-11-24T07:13:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/</loc>
+    <lastmod>2020-11-24T07:13:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/post/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD-%EC%82%AC%ED%9A%8C%EC%A0%81-%EB%AC%B8%EC%A0%9C%EB%93%A4/</loc>
+    <lastmod>2020-11-24T07:13:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/</loc>
+    <lastmod>2020-11-24T07:13:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/%EC%82%AC%ED%9A%8C%EB%AC%B8%EC%A0%9C/</loc>
+    <lastmod>2020-11-24T07:13:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/development/</loc>
     <lastmod>2020-11-23T12:18:39+09:00</lastmod>
   </url>
   
@@ -19,16 +44,6 @@
   
   <url>
     <loc>https://motal.github.io/tags/golang/</loc>
-    <lastmod>2020-11-23T12:18:39+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/post/</loc>
-    <lastmod>2020-11-23T12:18:39+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/tags/</loc>
     <lastmod>2020-11-23T12:18:39+09:00</lastmod>
   </url>
   
