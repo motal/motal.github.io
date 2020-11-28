@@ -8,7 +8,8 @@ Golang에서 Stack과 Queue 자료구조를 사용해보자.
 
 다행히 Slice만으로도 두 가지 용도로 사용할 수 있다.
 
-### Stack
+---
+## Stack
 코드
 
 	// push
@@ -29,7 +30,7 @@ Golang에서 Stack과 Queue 자료구조를 사용해보자.
     [1 2 3 4 5] 6
 
 
-### Queue
+## Queue
 코드
 
 	// enqueue
@@ -50,7 +51,7 @@ Golang에서 Stack과 Queue 자료구조를 사용해보자.
     [2 3 4]
 
 
-### Queue (channel을 이용)
+## Queue (channel을 이용)
 코드
 
 	// enqueue

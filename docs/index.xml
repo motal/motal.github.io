@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 28 Nov 2020 22:58:47 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Nov 2020 23:30:43 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Golang] Goroutine과 Channel</title>
+      <link>https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/</link>
+      <pubDate>Sat, 28 Nov 2020 23:30:43 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/</guid>
+      <description>Goroutine goroutine은 경량 스레드이다.
+(Green thread 혹은 light-weight thread 라고도 부른다)
+ green threads are threads that are scheduled by a runtime library or virtual machine (VM) instead of natively by the underlying operating system (OS). - Wikipedia
+ Channel channel은 데이터를 보내는 통로이다.
+자료구조 queue의 목적으로 써도 문제가 없다.
+버퍼 사이즈를 명시하지 않으면 사이즈가 0이다.
+ch1 := make(chan int) // 버퍼 사이즈가 0 ch2 := make(chan int, 1024) // 버퍼 사이즈가 1024  동작 방식 처음 goroutine을 사용하다보면 아래와 같은 에러를 자주 보게 된다.</description>
+    </item>
+    
     <item>
       <title>[Golang] Stack과 Queue</title>
       <link>https://motal.github.io/post/golang-stack%EA%B3%BC-queue/</link>
@@ -16,10 +31,10 @@
       <guid>https://motal.github.io/post/golang-stack%EA%B3%BC-queue/</guid>
       <description>Golang에서 Stack과 Queue 자료구조를 사용해보자.
 다행히 Slice만으로도 두 가지 용도로 사용할 수 있다.
-Stack 코드
+ Stack 코드
 // push stack := []int{1, 2, 3} stack = append(stack, 4) stack = append(stack, 5, 6) fmt.Println(stack) // pop val, stack := stack[len(stack)-1], stack[:len(stack)-1] fmt.Println(stack, val)  결과
 [1 2 3 4 5 6] [1 2 3 4 5] 6  Queue 코드
-// enqueue queue := []int{1, 2, 3} queue = append(queue, 4) fmt.Println(queue) // dequeue val, queue2 := queue[0], queue[1:] fmt.</description>
+// enqueue queue := []int{1, 2, 3} queue = append(queue, 4) fmt.</description>
     </item>
     
     <item>

@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.78.2" />
 
-  <title>[Golang] Stack과 Queue &middot; Doa&#39;s blog</title>
+  <title>[Golang] Goroutine과 Channel &middot; Doa&#39;s blog</title>
 
     
 
@@ -194,7 +194,7 @@
 
 
 <div class="header">
-  <h1>[Golang] Stack과 Queue</h1>
+  <h1>[Golang] Goroutine과 Channel</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -203,7 +203,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>28 Nov 2020, 22:58</time>
+    <time>28 Nov 2020, 23:30</time>
   </div>
 
   
@@ -214,79 +214,85 @@
 
 </div>
 
-  <p>Golang에서 Stack과 Queue 자료구조를 사용해보자.</p>
-<p>다행히 Slice만으로도 두 가지 용도로 사용할 수 있다.</p>
+  <h2 id="goroutine">Goroutine</h2>
+<p>goroutine은 경량 스레드이다.</p>
+<p>(Green thread 혹은 light-weight thread 라고도 부른다)</p>
+<blockquote>
+<p>green threads are threads that are scheduled by <em><strong>a runtime library or virtual machine (VM)</strong></em> instead of natively by the underlying operating system (OS). - <a href="https://en.wikipedia.org/wiki/Green_threads">Wikipedia</a></p>
+</blockquote>
+<h2 id="channel">Channel</h2>
+<p>channel은 데이터를 보내는 통로이다.</p>
+<p>자료구조 queue의 목적으로 써도 문제가 없다.</p>
+<p>버퍼 사이즈를 명시하지 않으면 사이즈가 0이다.</p>
+<pre><code>ch1 := make(chan int) // 버퍼 사이즈가 0
+ch2 := make(chan int, 1024) // 버퍼 사이즈가 1024
+</code></pre>
+<h2 id="동작-방식">동작 방식</h2>
+<p>처음 goroutine을 사용하다보면 아래와 같은 에러를 자주 보게 된다.</p>
+<pre><code>fatal error: all goroutines are asleep - deadlock!
+</code></pre>
+<p>아래의 원리를 이해하면 더 이상 실수를 하지 않을 수 있다.</p>
+<p><strong>송신하는 쪽은 다음을 확인한다.</strong></p>
+<ol>
+<li>channel에 버퍼가 남았냐? 있으면 집어 넣고 넘어간다. (버퍼 사이즈 초과시 에러)</li>
+<li>없다면 수신자가 나타날 때까지 대기(block) 한다.</li>
+</ol>
+<p><strong>수신하는 쪽에서는 다음을 확인한다.</strong></p>
+<ol>
+<li>해당 channel 버퍼에 데이터가 들어있니? 있으면 가져온다.</li>
+<li>데이터가 들어올 때 까지 대기(block) 한다. (만약 돌고 있는 goroutine 없으면 에러)</li>
+</ol>
+<h2 id="range와-close">range와 close</h2>
+<p>range를 쓴는 경우에는 반드시 close(ch)을 해줘야 에러가 안난다.</p>
+<p>close(ch)은 해당 channel에 더 이상 데이터가 못들어니 range를 종료해라는 뜻이다.</p>
 <hr>
-<h2 id="stack">Stack</h2>
+<h2 id="팩트-체크">팩트 체크</h2>
+<ul>
+<li>버퍼가 없는(=버퍼 사이즈가 0인) 경우, 송신하는 쪽에서는 Block이 되는 걸 확인할 수 있다.</li>
+</ul>
 <p>코드</p>
-<pre><code>// push
-stack := []int{1, 2, 3}
-stack = append(stack, 4)
-stack = append(stack, 5, 6)
+<pre><code>ch := make(chan string)
 
-fmt.Println(stack)
+go func(ch chan string) {
+    fmt.Println(&quot;start: &quot;, time.Now().Second())
+    ch &lt;- &quot;안녕?&quot;
+    fmt.Println(&quot;end: &quot;, time.Now().Second())
+}(ch)
 
-// pop
-val, stack := stack[len(stack)-1], stack[:len(stack)-1]
+time.Sleep(3 * time.Second)
 
-fmt.Println(stack, val)
+fmt.Println(&lt;-ch)
 </code></pre>
 <p>결과</p>
-<pre><code>[1 2 3 4 5 6]
-[1 2 3 4 5] 6
+<pre><code>start:  44
+안녕?
+end:  47
 </code></pre>
-<h2 id="queue">Queue</h2>
-<p>코드</p>
-<pre><code>// enqueue
-queue := []int{1, 2, 3}
-queue = append(queue, 4)
+<ul>
+<li>수신하는 측에서 3초 까지 block 되었다가 남은 goroutine이 없어 에러를 발생하는 것을 확인 할 수 있다.</li>
+</ul>
+<pre><code>ch := make(chan string)
 
-fmt.Println(queue)
+go func(ch chan string) {
+    time.Sleep(3 * time.Second)
+}(ch)
 
-// dequeue
-val, queue2 := queue[0], queue[1:]
-
-fmt.Println(val)
-fmt.Println(queue2)
+fmt.Println(&lt;-ch)
 </code></pre>
-<p>결과</p>
-<pre><code>[1 2 3 4]
-1
-[2 3 4]
-</code></pre>
-<h2 id="queue-channel을-이용">Queue (channel을 이용)</h2>
-<p>코드</p>
-<pre><code>// enqueue
-queue := make(chan int, 1024)
-queue &lt;- 1
-queue &lt;- 2
-queue &lt;- 3
-
-// dequeue
-fmt.Println(&lt;-queue)
-fmt.Println(&lt;-queue)
-fmt.Println(&lt;-queue)
-</code></pre>
-<p>결과</p>
-<pre><code>1
-2
-3
-</code></pre>
-
   
   
 <ul class="share-buttons">
-	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-stack%25EA%25B3%25BC-queue%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-stack%25EA%25B3%25BC-queue%2f&via=HorribleGeek" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f&via=HorribleGeek" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-stack%25EA%25B3%25BC-queue%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-stack%25EA%25B3%25BC-queue%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-stack%25EA%25B3%25BC-queue%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-stack%25EA%25B3%25BC-queue%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
 	</li>
 </ul>
 
@@ -318,13 +324,13 @@ fmt.Println(&lt;-queue)
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://motal.github.io/post/golang-stack%EA%B3%BC-queue/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/">[Golang] 포인터 리시버 vs 밸류 리시버</a>
+      <a href="https://motal.github.io/post/golang-stack%EA%B3%BC-queue/">[Golang] Stack과 Queue</a>
     </nav>
     
   </div>
@@ -333,14 +339,8 @@ fmt.Println(&lt;-queue)
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/">[Golang] Goroutine과 Channel</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
