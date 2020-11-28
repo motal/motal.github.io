@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 26 Nov 2020 09:38:28 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Nov 2020 22:58:47 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Golang] Stack과 Queue</title>
+      <link>https://motal.github.io/post/golang-stack%EA%B3%BC-queue/</link>
+      <pubDate>Sat, 28 Nov 2020 22:58:47 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/golang-stack%EA%B3%BC-queue/</guid>
+      <description>Golang에서 Stack과 Queue 자료구조를 사용해보자.
+다행히 Slice만으로도 두 가지 용도로 사용할 수 있다.
+Stack 코드
+// push stack := []int{1, 2, 3} stack = append(stack, 4) stack = append(stack, 5, 6) fmt.Println(stack) // pop val, stack := stack[len(stack)-1], stack[:len(stack)-1] fmt.Println(stack, val)  결과
+[1 2 3 4 5 6] [1 2 3 4 5] 6  Queue 코드
+// enqueue queue := []int{1, 2, 3} queue = append(queue, 4) fmt.Println(queue) // dequeue val, queue2 := queue[0], queue[1:] fmt.</description>
+    </item>
+    
     <item>
       <title>[Golang] 포인터 리시버 vs 밸류 리시버</title>
       <link>https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/</link>
