@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 24 Nov 2020 07:13:24 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Nov 2020 10:25:19 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>development</title>
+      <link>https://motal.github.io/tags/development/</link>
+      <pubDate>Sun, 29 Nov 2020 10:25:19 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://motal.github.io/tags/go/</link>
+      <pubDate>Sun, 29 Nov 2020 10:25:19 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://motal.github.io/tags/golang/</link>
+      <pubDate>Sun, 29 Nov 2020 10:25:19 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>문제해결</title>
       <link>https://motal.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/</link>
@@ -23,33 +50,6 @@
       <pubDate>Tue, 24 Nov 2020 07:13:24 +0900</pubDate>
       
       <guid>https://motal.github.io/tags/%EC%82%AC%ED%9A%8C%EB%AC%B8%EC%A0%9C/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>development</title>
-      <link>https://motal.github.io/tags/development/</link>
-      <pubDate>Mon, 23 Nov 2020 12:18:39 +0900</pubDate>
-      
-      <guid>https://motal.github.io/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://motal.github.io/tags/go/</link>
-      <pubDate>Mon, 23 Nov 2020 12:18:39 +0900</pubDate>
-      
-      <guid>https://motal.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://motal.github.io/tags/golang/</link>
-      <pubDate>Mon, 23 Nov 2020 12:18:39 +0900</pubDate>
-      
-      <guid>https://motal.github.io/tags/golang/</guid>
       <description></description>
     </item>
     

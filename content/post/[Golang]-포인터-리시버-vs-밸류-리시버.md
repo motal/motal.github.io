@@ -2,6 +2,11 @@
 title: "[Golang] 포인터 리시버 vs 밸류 리시버"
 date: 2020-11-26T09:38:28+09:00
 draft: false
+tags: [
+    "go",
+    "golang",
+    "development",
+]
 ---
 
 Value receiver와 Pointer receiver, 2가지가 receiver가 있다.

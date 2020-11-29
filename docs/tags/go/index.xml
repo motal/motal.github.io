@@ -7,7 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 23 Nov 2020 12:18:39 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Nov 2020 10:25:19 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Golang] Goroutine을 이용한 분산처리</title>
+      <link>https://motal.github.io/post/golang-goroutine%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC/</link>
+      <pubDate>Sun, 29 Nov 2020 10:25:19 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/golang-goroutine%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC/</guid>
+      <description>피보나치를 일꾼 4명에게 동시에 계산하도록 만들어보자.
+설명  worker는 일꾼이고 모두 goroutine으로 실행된다. jobs와 results는 각각 작업들과 결과물들을 전달하는 buffered 채널이다. worker 내부에는 jobs 채널로 부터 일을 계속 수신하고 그 결과는 results 채널로 전달한다. jobs 채널에 0~99까지의 작업을 전달한다. jobs에는 총 100개의 작업을 전달하고 jobs 채널을 종료(close)한다. 메인 스레드는 results 채널에서 오는 결과를 기다리고 있다.  코드 func main() { jobs := make(chan int, 100) results := make(chan string, 100) for i := 0; i &amp;lt; 100; i++ { jobs &amp;lt;- i } close(jobs) go worker(1, jobs, results) go worker(2, jobs, results) go worker(3, jobs, results) go worker(4, jobs, results) for i := 0; i &amp;lt; 100; i++ { fmt.</description>
+    </item>
+    
+    <item>
+      <title>[Golang] 포인터 리시버 vs 밸류 리시버</title>
+      <link>https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/</link>
+      <pubDate>Thu, 26 Nov 2020 09:38:28 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/</guid>
+      <description>Value receiver와 Pointer receiver, 2가지가 receiver가 있다.
+아래와 같은 구조체가 있다고 가정하고
+type Person struct { Name string } Value receiver의 예
+func (p Person) String() string { return p.Name + &amp;quot;!!!&amp;quot; } Pointer receiver의 예
+func (p *Person) String() string { return p.Name + &amp;quot;!!!&amp;quot; } 두 가지 receiver를 언제 어떻게 사용해야하는지 헷갈려서 공부한 내용을 기록한다.
+ 우선 아래의 원칙을 알아야 한다.
+원칙1. 둘 중에 한 가지만 정의할 수 있다.</description>
+    </item>
+    
     <item>
       <title>왜 Go를 사용하는가</title>
       <link>https://motal.github.io/post/%EC%99%9C-go%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%EA%B0%80/</link>

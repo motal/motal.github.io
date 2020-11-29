@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.78.2" />
 
-  <title>[Golang] Goroutine과 Channel &middot; Doa&#39;s blog</title>
+  <title>[Golang] Goroutine을 이용한 분산처리 &middot; Doa&#39;s blog</title>
 
     
 
@@ -194,7 +194,7 @@
 
 
 <div class="header">
-  <h1>[Golang] Goroutine과 Channel</h1>
+  <h1>[Golang] Goroutine을 이용한 분산처리</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -203,7 +203,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>28 Nov 2020, 23:30</time>
+    <time>29 Nov 2020, 10:25</time>
   </div>
 
   
@@ -211,88 +211,99 @@
   
 
   
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/development">development</a>
+    
+  </div>
+  
+  
 
 </div>
 
-  <h2 id="goroutine">Goroutine</h2>
-<p>goroutine은 경량 스레드이다.</p>
-<p>(Green thread 혹은 light-weight thread 라고도 부른다)</p>
-<blockquote>
-<p>green threads are threads that are scheduled by <em><strong>a runtime library or virtual machine (VM)</strong></em> instead of natively by the underlying operating system (OS). - <a href="https://en.wikipedia.org/wiki/Green_threads">Wikipedia</a></p>
-</blockquote>
-<h2 id="channel">Channel</h2>
-<p>channel은 데이터를 보내는 통로이다.</p>
-<p>자료구조 queue의 목적으로 써도 문제가 없다.</p>
-<p>버퍼 사이즈를 명시하지 않으면 사이즈가 0이다.</p>
-<pre><code>ch1 := make(chan int) // 버퍼 사이즈가 0
-ch2 := make(chan int, 1024) // 버퍼 사이즈가 1024
-</code></pre>
-<h2 id="동작-방식">동작 방식</h2>
-<p>처음 goroutine을 사용하다보면 아래와 같은 에러를 자주 보게 된다.</p>
-<pre><code>fatal error: all goroutines are asleep - deadlock!
-</code></pre>
-<p>아래의 원리를 이해하면 더 이상 실수를 하지 않을 수 있다.</p>
-<p><strong>송신하는 쪽은 다음을 확인한다.</strong></p>
-<ol>
-<li>channel에 버퍼가 남았냐? 있으면 집어 넣고 넘어간다. (버퍼 사이즈 초과시 에러)</li>
-<li>없다면 수신자가 나타날 때까지 대기(block) 한다.</li>
-</ol>
-<p><strong>수신하는 쪽에서는 다음을 확인한다.</strong></p>
-<ol>
-<li>해당 channel 버퍼에 데이터가 들어있니? 있으면 가져온다.</li>
-<li>데이터가 들어올 때 까지 대기(block) 한다. (만약 돌고 있는 goroutine 없으면 에러)</li>
-</ol>
-<h2 id="range와-close">range와 close</h2>
-<p>range를 쓴는 경우에는 반드시 close(ch)을 해줘야 에러가 안난다.</p>
-<p>close(ch)은 해당 channel에 더 이상 데이터가 못들어니 range를 종료해라는 뜻이다.</p>
-<hr>
-<h2 id="팩트-체크">팩트 체크</h2>
+  <p>피보나치를 일꾼 4명에게 동시에 계산하도록 만들어보자.</p>
+<h3 id="설명">설명</h3>
 <ul>
-<li>버퍼가 없는(=버퍼 사이즈가 0인) 경우, 송신하는 쪽에서는 Block이 되는 걸 확인할 수 있다.</li>
+<li>worker는 일꾼이고 모두 goroutine으로 실행된다.</li>
+<li>jobs와 results는 각각 작업들과 결과물들을 전달하는 buffered 채널이다.</li>
+<li>worker 내부에는 jobs 채널로 부터 일을 계속 수신하고 그 결과는 results 채널로 전달한다.</li>
+<li>jobs 채널에 0~99까지의 작업을 전달한다.</li>
+<li>jobs에는 총 100개의 작업을 전달하고 jobs 채널을 종료(close)한다.</li>
+<li>메인 스레드는 results 채널에서 오는 결과를 기다리고 있다.</li>
 </ul>
-<p>코드</p>
-<pre><code>ch := make(chan string)
+<h3 id="코드">코드</h3>
+<pre><code>func main() {
+	jobs := make(chan int, 100)
+	results := make(chan string, 100)
 
-go func(ch chan string) {
-    fmt.Println(&quot;start: &quot;, time.Now().Second())
-    ch &lt;- &quot;안녕?&quot;
-    fmt.Println(&quot;end: &quot;, time.Now().Second())
-}(ch)
+	for i := 0; i &lt; 100; i++ {
+		jobs &lt;- i
+	}
+	close(jobs)
 
-time.Sleep(3 * time.Second)
+	go worker(1, jobs, results)
+	go worker(2, jobs, results)
+	go worker(3, jobs, results)
+	go worker(4, jobs, results)
 
-fmt.Println(&lt;-ch)
-</code></pre>
-<p>결과</p>
-<pre><code>start:  44
-안녕?
-end:  47
-</code></pre>
-<ul>
-<li>수신하는 측에서 3초 까지 block 되었다가 남은 goroutine이 없어 에러를 발생하는 것을 확인 할 수 있다.</li>
-</ul>
-<pre><code>ch := make(chan string)
+	for i := 0; i &lt; 100; i++ {
+		fmt.Println(&lt;-results)
+	}
+}
 
-go func(ch chan string) {
-    time.Sleep(3 * time.Second)
-}(ch)
+func worker(num int, jobs &lt;-chan int, results chan&lt;- string) {
+	for n := range jobs {
+		results &lt;- fmt.Sprintf(&quot;%d번 goroutine - %d&quot;, num, fibonacci(n))
+	}
+}
 
-fmt.Println(&lt;-ch)
-</code></pre>
+func fibonacci(n int) int {
+	if n &lt; 0 {
+		return 0
+	}
+	if n == 1 {
+		return 1
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
+}
+
+</code></pre><h3 id="결과">결과</h3>
+<p>1~4번 goroutine 들이 번갈아가면서 피보나치의 결과를 보내고 있는 것을 볼 수 있다.</p>
+<pre><code>2번 goroutine - 267914296
+4번 goroutine - 433494437
+3번 goroutine - 701408733
+1번 goroutine - 1134903170
+2번 goroutine - 1836311903
+4번 goroutine - 2971215073
+3번 goroutine - 4807526976
+</code></pre><h3 id="cpu-사용량">CPU 사용량</h3>
+<p>와우! <br>
+400%에 근접해 있는 것을 볼 수 있는데 이는 worker가 4명이기 때문이다.<br>
+만약 worker의 수를 3개로 줄이면 300%가 된다.<br>
+이런 패턴을 이용하면 cpu core 수를 고려한 최적의 동시성 처리가 가능할 것 같다.</p>
+<p><img src="https://motal.github.io/img/fibonacci-distribute-cpu.png" alt=""></p>
+
   
   
 <ul class="share-buttons">
-	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EC%259D%2584-%25EC%259D%25B4%25EC%259A%25A9%25ED%2595%259C-%25EB%25B6%2584%25EC%2582%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f&via=HorribleGeek" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EC%259D%2584-%25EC%259D%25B4%25EC%259A%25A9%25ED%2595%259C-%25EB%25B6%2584%25EC%2582%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f&via=HorribleGeek" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EC%259D%2584-%25EC%259D%25B4%25EC%259A%25A9%25ED%2595%259C-%25EB%25B6%2584%25EC%2582%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EC%259D%2584-%25EC%259D%25B4%25EC%259A%25A9%25ED%2595%259C-%25EB%25B6%2584%25EC%2582%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EC%259D%2584-%25EC%259D%25B4%25EC%259A%25A9%25ED%2595%259C-%25EB%25B6%2584%25EC%2582%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EA%25B3%25BC-channel%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fmotal.github.io%2fpost%2fgolang-goroutine%25EC%259D%2584-%25EC%259D%25B4%25EC%259A%25A9%25ED%2595%259C-%25EB%25B6%2584%25EC%2582%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
 	</li>
 </ul>
 
@@ -324,13 +335,13 @@ fmt.Println(&lt;-ch)
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://motal.github.io/post/golang-stack%EA%B3%BC-queue/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://motal.github.io/post/golang-stack%EA%B3%BC-queue/">[Golang] Stack과 Queue</a>
+      <a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/">[Golang] Goroutine과 Channel</a>
     </nav>
     
   </div>
@@ -339,14 +350,8 @@ fmt.Println(&lt;-ch)
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://motal.github.io/post/golang-goroutine%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC/">[Golang] Goroutine을 이용한 분산처리</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://motal.github.io/post/golang-goroutine%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
