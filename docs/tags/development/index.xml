@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 29 Nov 2020 10:25:19 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2020 11:07:30 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Golang] Embedding</title>
+      <link>https://motal.github.io/post/golang-embedding/</link>
+      <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/golang-embedding/</guid>
+      <description>임베딩(Embedding)에 대해 알아보자.
+자바의 상속과는 달리, Golang은 임베딩을 통해 다형성을 지원한다.
+Effective java를 보면 &amp;lsquo;상속 대신 조합(composition)을 하라&amp;rsquo;라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.
+ 참고로 상속은 부모-자식간 강한 커플링을 맺게 되므로 좋지 않다. 조합은 내부 구성품에 접근하기 위한 getter/setter가 필요하지만 임베딩은 이조차 필요없이 합체(?)가 된다는 면에서 차이가 있다.  interface와 struct 모두 임베딩이 가능하다. 단,
+ interface는 interface만 포함할 수 있다. struct는 struct과 interface 둘 다 포함할 수 있다.  임베딩을 하게 되면 안쪽에 있는 메소드를 바깥쪽에서 마음데로 가져다 쓸 수 있다.</description>
+    </item>
+    
     <item>
       <title>[Golang] Goroutine을 이용한 분산처리</title>
       <link>https://motal.github.io/post/golang-goroutine%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC/</link>
@@ -16,6 +29,20 @@
       <guid>https://motal.github.io/post/golang-goroutine%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC/</guid>
       <description>피보나치를 일꾼 4명에게 동시에 계산하도록 만들어보자.
 설명  worker는 일꾼이고 모두 goroutine으로 실행된다. jobs와 results는 각각 작업들과 결과물들을 전달하는 buffered 채널이다. worker 내부에는 jobs 채널로 부터 일을 계속 수신하고 그 결과는 results 채널로 전달한다. jobs 채널에 0~99까지의 작업을 전달한다. jobs에는 총 100개의 작업을 전달하고 jobs 채널을 종료(close)한다. 메인 스레드는 results 채널에서 오는 결과를 기다리고 있다.  코드 func main() { jobs := make(chan int, 100) results := make(chan string, 100) for i := 0; i &amp;lt; 100; i++ { jobs &amp;lt;- i } close(jobs) go worker(1, jobs, results) go worker(2, jobs, results) go worker(3, jobs, results) go worker(4, jobs, results) for i := 0; i &amp;lt; 100; i++ { fmt.</description>
+    </item>
+    
+    <item>
+      <title>[Golang] Stack과 Queue</title>
+      <link>https://motal.github.io/post/golang-stack%EA%B3%BC-queue/</link>
+      <pubDate>Sat, 28 Nov 2020 22:58:47 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/golang-stack%EA%B3%BC-queue/</guid>
+      <description>Golang에서 Stack과 Queue 자료구조를 사용해보자.
+다행히 Slice만으로도 두 가지 용도로 사용할 수 있다.
+ Stack 코드
+// push stack := []int{1, 2, 3} stack = append(stack, 4) stack = append(stack, 5, 6) fmt.Println(stack) // pop val, stack := stack[len(stack)-1], stack[:len(stack)-1] fmt.Println(stack, val)  결과
+[1 2 3 4 5 6] [1 2 3 4 5] 6  Queue 코드
+// enqueue queue := []int{1, 2, 3} queue = append(queue, 4) fmt.</description>
     </item>
     
     <item>

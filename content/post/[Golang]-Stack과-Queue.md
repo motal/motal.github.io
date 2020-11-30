@@ -2,6 +2,11 @@
 title: "[Golang] Stack과 Queue"
 date: 2020-11-28T22:58:47+09:00
 draft: false
+tags: [
+    "go",
+    "golang",
+    "development",
+]
 ---
 
 Golang에서 Stack과 Queue 자료구조를 사용해보자.

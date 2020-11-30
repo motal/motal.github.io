@@ -206,6 +206,57 @@
   
     <article>
   <header>
+    <h2><a href="https://motal.github.io/post/golang-embedding/">[Golang] Embedding</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Nov 2020, 11:07</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/development">development</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  임베딩(Embedding)에 대해 알아보자.
+자바의 상속과는 달리, Golang은 임베딩을 통해 다형성을 지원한다.
+Effective java를 보면 &lsquo;상속 대신 조합(composition)을 하라&rsquo;라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.
+ 참고로 상속은 부모-자식간 강한 커플링을 맺게 되므로 좋지 않다. 조합은 내부 구성품에 접근하기 위한 getter/setter가 필요하지만 임베딩은 이조차 필요없이 합체(?)가 된다는 면에서 차이가 있다.  interface와 struct 모두 임베딩이 가능하다. 단,
+ interface는 interface만 포함할 수 있다. struct는 struct과 interface 둘 다 포함할 수 있다.  임베딩을 하게 되면 안쪽에 있는 메소드를 바깥쪽에서 마음데로 가져다 쓸 수 있다.
+  </p>
+
+  
+  <footer>
+    <a href="https://motal.github.io/post/golang-embedding/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://motal.github.io/post/golang-goroutine%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC/">[Golang] Goroutine을 이용한 분산처리</a></h2>
 
     <div class="post-meta">
@@ -306,6 +357,20 @@ ch1 := make(chan int) // 버퍼 사이즈가 0 ch2 := make(chan int, 1024) // �
 
   
 
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/development">development</a>
+    
+  </div>
+  
   
 
 </div>
@@ -566,58 +631,6 @@ We&rsquo;ll start with creating a new site with a very basic template.
   
   <footer>
     <a href="https://motal.github.io/post/creating-a-new-theme/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://motal.github.io/post/goisforlovers/">(Hu)go Template Primer</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>02 Apr 2014, 00:00</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/templates">templates</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/themes">themes</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/development">development</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.
-  </p>
-
-  
-  <footer>
-    <a href="https://motal.github.io/post/goisforlovers/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
