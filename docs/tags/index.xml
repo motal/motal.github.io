@@ -9,15 +9,6 @@
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 11:07:30 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>development</title>
-      <link>https://motal.github.io/tags/development/</link>
-      <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
-      
-      <guid>https://motal.github.io/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>go</title>
       <link>https://motal.github.io/tags/go/</link>
       <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
@@ -32,6 +23,15 @@
       <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
       
       <guid>https://motal.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sw</title>
+      <link>https://motal.github.io/tags/sw/</link>
+      <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/sw/</guid>
       <description></description>
     </item>
     
@@ -54,11 +54,11 @@
     </item>
     
     <item>
-      <title>sw</title>
-      <link>https://motal.github.io/tags/sw/</link>
-      <pubDate>Mon, 23 Nov 2020 12:18:39 +0900</pubDate>
+      <title>development</title>
+      <link>https://motal.github.io/tags/development/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://motal.github.io/tags/sw/</guid>
+      <guid>https://motal.github.io/tags/development/</guid>
       <description></description>
     </item>
     

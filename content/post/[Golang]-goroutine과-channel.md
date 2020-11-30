@@ -2,6 +2,11 @@
 title: "[Golang] Goroutine과 Channel"
 date: 2020-11-28T23:30:43+09:00
 draft: false
+tags: [
+    "go",
+    "golang",
+    "sw",
+]
 ---
 ## Goroutine
 goroutine은 경량 스레드이다.

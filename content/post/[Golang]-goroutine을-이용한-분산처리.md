@@ -5,7 +5,7 @@ draft: false
 tags: [
     "go",
     "golang",
-    "development",
+    "sw",
 ]
 ---
 
