@@ -206,6 +206,53 @@
   
     <article>
   <header>
+    <h2><a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/">[알고리즘] 이진검색 패턴</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 Dec 2020, 13:50</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89">이진검색</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  이진검색을 구현하는 것은 대게 어렵지 않으나 구현할 때마다 헷갈린다.
+아래와 같이 구현하면 대부분의 경우를 만족시킬 수 있다.
+패턴  arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5} l := 0 r := len(arr) // 배열 끝 index보다 1이 커야 한다 t := 3 for l != r { // floor를 적용, overflow 방지 m := l + (r-l)/2 if arr[m] &lt; t { // 왼쪽을 버리는 조건 // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함 l = m + 1 } else { r = m } } if arr[l] == t { fmt.
+  </p>
+
+  
+  <footer>
+    <a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://motal.github.io/post/%ED%88%AC%EC%9E%90-%EA%B8%B0%EC%97%85-%EC%9E%AC%EB%AC%B4%EC%A0%9C%ED%91%9C%EC%99%80-%EC%86%90%EC%9D%B5%EA%B3%84%EC%82%B0%EC%84%9C-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/">[투자] 기업 재무제표와 손익계산서 용어 정리1</a></h2>
 
     <div class="post-meta">
@@ -630,35 +677,6 @@ func (p *Person) String() string { return p.Name + &quot;!!!&quot; } 두 가지 
 package main import &quot;fmt&quot; func main() { fmt.Println(&quot;만나서 반갑습니다&quot;) }  리스트 리스트가 잘 되는지 확인해본다.
  사과 바나나 포도  링크 링크가 잘 되는지 테스트해본다.
  구글 네이버  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://motal.github.io/post/the-beginning/">처음 글</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>22 Nov 2020, 23:31</time>
-  </div>
-
-  
-
-  
-
-  
-
-</div>
-
-  </header>
-
-  <p>
-  처음 글 hugo를 이용하여 처음으로 글 써본다.
   </p>
 
   

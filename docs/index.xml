@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 03 Dec 2020 08:33:43 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Dec 2020 13:50:34 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[알고리즘] 이진검색 패턴</title>
+      <link>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/</link>
+      <pubDate>Fri, 04 Dec 2020 13:50:34 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/</guid>
+      <description>이진검색을 구현하는 것은 대게 어렵지 않으나 구현할 때마다 헷갈린다.
+아래와 같이 구현하면 대부분의 경우를 만족시킬 수 있다.
+패턴  arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5} l := 0 r := len(arr) // 배열 끝 index보다 1이 커야 한다 t := 3 for l != r { // floor를 적용, overflow 방지 m := l + (r-l)/2 if arr[m] &amp;lt; t { // 왼쪽을 버리는 조건 // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함 l = m + 1 } else { r = m } } if arr[l] == t { fmt.</description>
+    </item>
+    
     <item>
       <title>[투자] 기업 재무제표와 손익계산서 용어 정리1</title>
       <link>https://motal.github.io/post/%ED%88%AC%EC%9E%90-%EA%B8%B0%EC%97%85-%EC%9E%AC%EB%AC%B4%EC%A0%9C%ED%91%9C%EC%99%80-%EC%86%90%EC%9D%B5%EA%B3%84%EC%82%B0%EC%84%9C-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/</link>

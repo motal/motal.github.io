@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.78.2" />
+
+  <title>[알고리즘] 이진검색 패턴 &middot; Doa&#39;s blog</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://motal.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://motal.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://motal.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://motal.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://motal.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://motal.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://motal.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://motal.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2020. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>[알고리즘] 이진검색 패턴</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 Dec 2020, 13:50</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89">이진검색</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>이진검색을 구현하는 것은 대게 어렵지 않으나 구현할 때마다 헷갈린다.<br>
+아래와 같이 구현하면 대부분의 경우를 만족시킬 수 있다.</p>
+<h2 id="패턴">패턴</h2>
+<pre><code>
+    arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5}
+    l := 0
+    r := len(arr) // 배열 끝 index보다 1이 커야 한다
+    t := 3
+
+    for l != r {
+        // floor를 적용, overflow 방지
+        m := l + (r-l)/2 
+        if arr[m] &lt; t { // 왼쪽을 버리는 조건
+            // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함
+            l = m + 1
+        } else {
+            r = m
+        }
+    }
+    if arr[l] == t {
+        fmt.Println(&quot;found&quot;)
+    } else {
+        fmt.Println(&quot;not found&quot;)
+    }
+    fmt.Println(&quot;idx:&quot;, l)
+
+</code></pre><p>위 코드 패턴은 아래의 경우를 모두 만족한다.</p>
+<ol>
+<li>정확한 t를 찾는 경우</li>
+<li>중복이 있는 경우 left-most를 찾는 경우</li>
+</ol>
+<p>right-most를 구하기 위해서는 아래처럼만 수정하면 된다.</p>
+<pre><code>arr[m] &lt; t  =&gt;  arr[m] &lt;= t 
+</code></pre><h2 id="그리고">그리고</h2>
+<p>좀 더 생각해보자.</p>
+<p>이진탐색은 탐색을 지속하면서 왼쪽 혹은 오른쪽을 계속 버리는 것과 같다.<br>
+그러므로 첫 if절 조건은, 왼쪽을 버릴지 오른쪽을 버릴지를 명시하는 것과 같다.</p>
+<p>l = m + 1 과 r = m 코드는 그대로 유지하지 않는 것이 무한루프를 막을 수 있는데 이는 m을 구하는 코드가 floor를 적용한 것과 같기 때문이다.   <br>
+만약 ceil을 적용했다면 l = m, r = m - 1 형태로 바뀌어야 한다.</p>
+<h2 id="참고">참고</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">https://en.wikipedia.org/wiki/Binary_search_algorithm</a></li>
+<li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">https://leetcode.com/problems/search-in-rotated-sorted-array/</a></li>
+</ul>
+
+  
+  
+<ul class="share-buttons">
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25EA%25B2%2580%25EC%2583%2589-%25ED%258C%25A8%25ED%2584%25B4%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25EA%25B2%2580%25EC%2583%2589-%25ED%258C%25A8%25ED%2584%25B4%2f&via=HorribleGeek" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25EA%25B2%2580%25EC%2583%2589-%25ED%258C%25A8%25ED%2584%25B4%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25EA%25B2%2580%25EC%2583%2589-%25ED%258C%25A8%25ED%2584%25B4%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25EA%25B2%2580%25EC%2583%2589-%25ED%258C%25A8%25ED%2584%25B4%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25EA%25B2%2580%25EC%2583%2589-%25ED%258C%25A8%25ED%2584%25B4%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	</li>
+</ul>
+
+
+<style>
+	ul.share-buttons{
+	  list-style: none;
+	  padding: 0;
+	}
+
+	ul.share-buttons li{
+	  display: inline;
+	}
+
+	ul.share-buttons .sr-only{
+	  position: absolute;
+	  clip: rect(1px 1px 1px 1px);
+	  clip: rect(1px, 1px, 1px, 1px);
+	  padding: 0;
+	  border: 0;
+	  height: 1px;
+	  width: 1px;
+	  overflow: hidden;
+	}
+</style>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://motal.github.io/post/%ED%88%AC%EC%9E%90-%EA%B8%B0%EC%97%85-%EC%9E%AC%EB%AC%B4%EC%A0%9C%ED%91%9C%EC%99%80-%EC%86%90%EC%9D%B5%EA%B3%84%EC%82%B0%EC%84%9C-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://motal.github.io/post/%ED%88%AC%EC%9E%90-%EA%B8%B0%EC%97%85-%EC%9E%AC%EB%AC%B4%EC%A0%9C%ED%91%9C%EC%99%80-%EC%86%90%EC%9D%B5%EA%B3%84%EC%82%B0%EC%84%9C-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/">[투자] 기업 재무제표와 손익계산서 용어 정리1</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://motal.github.io/js/ui.js"></script>
+<script src="https://motal.github.io/js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+
