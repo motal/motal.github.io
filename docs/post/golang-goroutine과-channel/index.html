@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.62.0" />
+  <meta name="generator" content="Hugo 0.78.2" />
 
   <title>[Golang] Goroutine과 Channel &middot; Doa&#39;s blog</title>
 
@@ -241,7 +241,7 @@
 <pre><code>ch1 := make(chan int) // 버퍼 사이즈가 0
 ch2 := make(chan int, 1024) // 버퍼 사이즈가 1024
 </code></pre>
-<h2 id="-">동작 방식</h2>
+<h2 id="동작-방식">동작 방식</h2>
 <p>처음 goroutine을 사용하다보면 아래와 같은 에러를 자주 보게 된다.</p>
 <pre><code>fatal error: all goroutines are asleep - deadlock!
 </code></pre>
@@ -256,11 +256,11 @@ ch2 := make(chan int, 1024) // 버퍼 사이즈가 1024
 <li>해당 channel 버퍼에 데이터가 들어있니? 있으면 가져온다.</li>
 <li>데이터가 들어올 때 까지 대기(block) 한다. (만약 돌고 있는 goroutine 없으면 에러)</li>
 </ol>
-<h2 id="range-close">range와 close</h2>
+<h2 id="range와-close">range와 close</h2>
 <p>range를 쓴는 경우에는 반드시 close(ch)을 해줘야 에러가 안난다.</p>
 <p>close(ch)은 해당 channel에 더 이상 데이터가 못들어니 range를 종료해라는 뜻이다.</p>
 <hr>
-<h2 id="--1">팩트 체크</h2>
+<h2 id="팩트-체크">팩트 체크</h2>
 <ul>
 <li>버퍼가 없는(=버퍼 사이즈가 0인) 경우, 송신하는 쪽에서는 Block이 되는 걸 확인할 수 있다.</li>
 </ul>

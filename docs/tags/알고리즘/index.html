@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.62.0" />
+  <meta name="generator" content="Hugo 0.78.2" />
 
   <title>알고리즘 &middot; Doa&#39;s blog</title>
 
@@ -239,7 +239,7 @@
   <p>
   이진검색을 구현하는 것은 대게 어렵지 않으나 구현할 때마다 헷갈린다.
 아래와 같이 구현하면 대부분의 경우를 만족시킬 수 있다.
-패턴  arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5} l := 0 r := len(arr) // 배열 끝 index보다 1이 커야 한다 t := 3 // target for l &lt; r { // 혹은 l != r // floor를 적용 // (l + r)/2는 overflow가 발생할 수 있음 m := l + (r-l)/2 if arr[m] &lt; t { // 왼쪽 영역을 버리는 조건 // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함 l = m + 1 } else { // 오른쪽 영역을 버리는 조건 r = m } } // t의 존재 유무가 필요한 경우 if arr[l] == t { fmt.
+패턴  arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5} l := 0 r := len(arr) // 배열 끝 index보다 1이 커야 한다 t := 3 // target for l &lt; r { // 혹은 l != r // floor를 적용 // (l + r)/2는 overflow가 발생할 수 있음 m := l + (r-l)/2 if arr[m] &lt; t { // 왼쪽 영역 + 가운데를 버리는 조건 // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함 l = m + 1 } else { // 오른쪽 영역을 버리는 조건 r = m } } // t의 존재 유무가 필요한 경우 if arr[l] == t { fmt.
   </p>
 
   

@@ -6,10 +6,6 @@
     <description>Recent content in Topics on Doa&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    
-	<atom:link href="https://motal.github.io/topics/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>&amp;copy; 2020. All rights reserved.</copyright><atom:link href="https://motal.github.io/topics/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

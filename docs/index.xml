@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 04 Dec 2020 13:50:34 +0900</lastBuildDate>
-    
-	<atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 04 Dec 2020 13:50:34 +0900</lastBuildDate><atom:link href="https://motal.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[알고리즘] 이진검색 패턴</title>
       <link>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/</link>
@@ -20,7 +16,7 @@
       <guid>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/</guid>
       <description>이진검색을 구현하는 것은 대게 어렵지 않으나 구현할 때마다 헷갈린다.
 아래와 같이 구현하면 대부분의 경우를 만족시킬 수 있다.
-패턴  arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5} l := 0 r := len(arr) // 배열 끝 index보다 1이 커야 한다 t := 3 // target for l &amp;lt; r { // 혹은 l != r // floor를 적용 // (l + r)/2는 overflow가 발생할 수 있음 m := l + (r-l)/2 if arr[m] &amp;lt; t { // 왼쪽 영역을 버리는 조건 // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함 l = m + 1 } else { // 오른쪽 영역을 버리는 조건 r = m } } // t의 존재 유무가 필요한 경우 if arr[l] == t { fmt.</description>
+패턴  arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5} l := 0 r := len(arr) // 배열 끝 index보다 1이 커야 한다 t := 3 // target for l &amp;lt; r { // 혹은 l != r // floor를 적용 // (l + r)/2는 overflow가 발생할 수 있음 m := l + (r-l)/2 if arr[m] &amp;lt; t { // 왼쪽 영역 + 가운데를 버리는 조건 // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함 l = m + 1 } else { // 오른쪽 영역을 버리는 조건 r = m } } // t의 존재 유무가 필요한 경우 if arr[l] == t { fmt.</description>
     </item>
     
     <item>
@@ -44,7 +40,7 @@
       <guid>https://motal.github.io/post/golang-embedding/</guid>
       <description>임베딩(Embedding)에 대해 알아보자.
 자바의 상속과는 달리, Golang은 임베딩을 지원한다.
-Effective java를 보면 &amp;lsquo;상속 대신 조합(composition)을 하라&#39;라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.
+Effective java를 보면 &amp;lsquo;상속 대신 조합(composition)을 하라&amp;rsquo;라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.
  참고로 상속은 부모-자식간 강한 커플링을 맺게 되므로 좋지 않다. 조합은 내부 구성품에 접근하기 위한 getter/setter가 필요하지만 임베딩은 이조차 필요없이 흡수(?)가 된다는 면에서 차이가 있다.  interface와 struct 모두 임베딩이 가능하다. 단,
  interface는 interface만 포함할 수 있다. struct는 struct과 interface 둘 다 포함할 수 있다.  임베딩을 하게 되면 안쪽에 있는 메소드를 바깥쪽에서 마음데로 가져다 쓸 수 있다.</description>
     </item>
@@ -162,8 +158,8 @@ package main import &amp;quot;fmt&amp;quot; func main() { fmt.Println(&amp;quot;
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://motal.github.io/post/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&#39;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&#39;t cover using CSS to style your theme.
-We&#39;ll start with creating a new site with a very basic template.</description>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
@@ -207,7 +203,7 @@ Follow the following steps:
       <guid>https://motal.github.io/post/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&#39;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     
   </channel>
