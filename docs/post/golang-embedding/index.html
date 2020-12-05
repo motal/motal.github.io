@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <title>[Golang] Embedding &middot; Doa&#39;s blog</title>
 
@@ -230,7 +230,7 @@
 
   <p>임베딩(Embedding)에 대해 알아보자.<br>
 자바의 상속과는 달리, Golang은 임베딩을 지원한다.<br>
-Effective java를 보면 &lsquo;상속 대신 조합(composition)을 하라&rsquo;라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.</p>
+Effective java를 보면 &lsquo;상속 대신 조합(composition)을 하라'라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.</p>
 <ul>
 <li>참고로 상속은 부모-자식간 강한 커플링을 맺게 되므로 좋지 않다.</li>
 <li>조합은 내부 구성품에 접근하기 위한 getter/setter가 필요하지만 임베딩은 이조차 필요없이 흡수(?)가 된다는 면에서 차이가 있다.</li>
@@ -329,7 +329,7 @@ func main() {
 <pre><code>2020/11/30 11:14:03 hi~
 </code></pre><p>와~! Logger를 임베딩 했을 뿐인데, Job은 logger의 모든 인터페이스를 사용할 수 있게 되었다.<br>
 게다가 앞으로 logger의 구현체를 바꾸기만 하면 Job은 아무런 변경없이도 새로운 Logger기능을 변경할 수 있는 것이다.   (박수&hellip;)</p>
-<h3 id="레퍼런스">레퍼런스</h3>
+<h3 id="heading">레퍼런스</h3>
 <ul>
 <li><a href="https://golang.org/doc/effective_go.html#embedding">https://golang.org/doc/effective_go.html#embedding</a></li>
 </ul>

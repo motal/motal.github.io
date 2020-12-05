@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <title>go &middot; Doa&#39;s blog</title>
 
@@ -241,7 +241,7 @@
   <p>
   임베딩(Embedding)에 대해 알아보자.
 자바의 상속과는 달리, Golang은 임베딩을 지원한다.
-Effective java를 보면 &lsquo;상속 대신 조합(composition)을 하라&rsquo;라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.
+Effective java를 보면 &lsquo;상속 대신 조합(composition)을 하라'라고 하는데 여기의 조합과 임베딩은 유사한 개념이다.
  참고로 상속은 부모-자식간 강한 커플링을 맺게 되므로 좋지 않다. 조합은 내부 구성품에 접근하기 위한 getter/setter가 필요하지만 임베딩은 이조차 필요없이 흡수(?)가 된다는 면에서 차이가 있다.  interface와 struct 모두 임베딩이 가능하다. 단,
  interface는 interface만 포함할 수 있다. struct는 struct과 interface 둘 다 포함할 수 있다.  임베딩을 하게 되면 안쪽에 있는 메소드를 바깥쪽에서 마음데로 가져다 쓸 수 있다.
   </p>

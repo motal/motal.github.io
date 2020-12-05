@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <title>[알고리즘] 이진검색 패턴 &middot; Doa&#39;s blog</title>
 
@@ -228,44 +228,49 @@
 
   <p>이진검색을 구현하는 것은 대게 어렵지 않으나 구현할 때마다 헷갈린다.<br>
 아래와 같이 구현하면 대부분의 경우를 만족시킬 수 있다.</p>
-<h2 id="패턴">패턴</h2>
+<h2 id="heading">패턴</h2>
 <pre><code>
     arr := []int{1, 1, 2, 2, 2, 4, 4, 5, 5, 5}
     l := 0
     r := len(arr) // 배열 끝 index보다 1이 커야 한다
-    t := 3
+    t := 3 // target
 
-    for l != r {
-        // floor를 적용, overflow 방지
+    for l &lt; r { // 혹은 l != r
+        // floor를 적용
+        // (l + r)/2는 overflow가 발생할 수 있음
         m := l + (r-l)/2 
-        if arr[m] &lt; t { // 왼쪽을 버리는 조건
+        if arr[m] &lt; t { // 왼쪽 영역을 버리는 조건
             // floor적용에 따른 무한루프 방지를 위해 left에 1을 더함
             l = m + 1
-        } else {
+        } else { // 오른쪽 영역을 버리는 조건
             r = m
         }
     }
+    
+    // t의 존재 유무가 필요한 경우
     if arr[l] == t {
         fmt.Println(&quot;found&quot;)
     } else {
         fmt.Println(&quot;not found&quot;)
     }
+
+    // 경계를 확인하고 싶은 경우
     fmt.Println(&quot;idx:&quot;, l)
 
-</code></pre><p>위 코드 패턴은 아래의 경우를 모두 만족한다.</p>
+</code></pre><p>위 코드는 아래의 경우를 모두 만족한다.</p>
 <ol>
 <li>정확한 t를 찾는 경우</li>
 <li>중복이 있는 경우 left-most를 찾는 경우</li>
 </ol>
-<p>right-most를 구하기 위해서는 아래처럼만 수정하면 된다.</p>
+<p>참고로 right-most를 구하기 위해서는 아래처럼만 수정하면 된다.</p>
 <pre><code>arr[m] &lt; t  =&gt;  arr[m] &lt;= t 
-</code></pre><h2 id="그리고">그리고</h2>
-<p>좀 더 생각해보자.</p>
+</code></pre><h2 id="heading-1">응용</h2>
 <p>이진탐색은 탐색을 지속하면서 왼쪽 혹은 오른쪽을 계속 버리는 것과 같다.<br>
-그러므로 첫 if절 조건은, 왼쪽을 버릴지 오른쪽을 버릴지를 명시하는 것과 같다.</p>
-<p>l = m + 1 과 r = m 코드는 그대로 유지하지 않는 것이 무한루프를 막을 수 있는데 이는 m을 구하는 코드가 floor를 적용한 것과 같기 때문이다.   <br>
+첫 if절 조건이 참이 되는 경우는 왼쪽 영역을 버리는 경우이다.<br>
+이것을 이해한다면, 다른 응용 케이스에서도 위의 코드 템플릿은 유지한 채 if 조건만 수정하면 된다.</p>
+<p>l = m + 1 과 r = m 코드는 무한루프를 막기 위해 필요한데 이는 m을 구하는 코드가 floor를 적용했기 때문이다.
 만약 ceil을 적용했다면 l = m, r = m - 1 형태로 바뀌어야 한다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="heading-2">참고</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">https://en.wikipedia.org/wiki/Binary_search_algorithm</a></li>
 <li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">https://leetcode.com/problems/search-in-rotated-sorted-array/</a></li>

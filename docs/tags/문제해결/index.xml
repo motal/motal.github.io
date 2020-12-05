@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 24 Nov 2020 07:13:24 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Nov 2020 07:13:24 +0900</lastBuildDate>
+    
+	<atom:link href="https://motal.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>대한민국 사회적 문제들</title>
       <link>https://motal.github.io/post/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD-%EC%82%AC%ED%9A%8C%EC%A0%81-%EB%AC%B8%EC%A0%9C%EB%93%A4/</link>

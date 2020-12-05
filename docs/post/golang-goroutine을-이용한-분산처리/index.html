@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.62.0" />
 
   <title>[Golang] Goroutine을 이용한 분산처리 &middot; Doa&#39;s blog</title>
 
@@ -229,7 +229,7 @@
 </div>
 
   <p>피보나치를 일꾼 4명에게 동시에 계산하도록 만들어보자.</p>
-<h3 id="설명">설명</h3>
+<h3 id="heading">설명</h3>
 <ul>
 <li>worker는 일꾼이고 모두 goroutine으로 실행된다.</li>
 <li>jobs와 results는 각각 작업들과 결과물들을 전달하는 buffered 채널이다.</li>
@@ -238,7 +238,7 @@
 <li>jobs에는 총 100개의 작업을 전달하고 jobs 채널을 종료(close)한다.</li>
 <li>메인 스레드는 results 채널에서 오는 결과를 기다리고 있다.</li>
 </ul>
-<h3 id="코드">코드</h3>
+<h3 id="heading-1">코드</h3>
 <pre><code>func main() {
 	jobs := make(chan int, 100)
 	results := make(chan string, 100)
@@ -274,7 +274,7 @@ func fibonacci(n int) int {
 	return fibonacci(n-1) + fibonacci(n-2)
 }
 
-</code></pre><h3 id="결과">결과</h3>
+</code></pre><h3 id="heading-2">결과</h3>
 <p>1~4번 goroutine 들이 번갈아가면서 피보나치의 결과를 보내고 있는 것을 볼 수 있다.</p>
 <pre><code>2번 goroutine - 267914296
 4번 goroutine - 433494437
@@ -283,7 +283,7 @@ func fibonacci(n int) int {
 2번 goroutine - 1836311903
 4번 goroutine - 2971215073
 3번 goroutine - 4807526976
-</code></pre><h3 id="cpu-사용량">CPU 사용량</h3>
+</code></pre><h3 id="cpu-">CPU 사용량</h3>
 <p>와우! <br>
 400%에 근접해 있는 것을 볼 수 있는데 이는 worker가 4명이기 때문이다.<br>
 만약 worker의 수를 3개로 줄이면 300%가 된다.<br>
