@@ -53,6 +53,7 @@ procedure BFS(G, root) is
 ## 차이
 - DFS는 stack을, BFS는 queue를 사용한다
 - 반복문의 경우, DFS는 꺼낸 다음, BFS는 넣기 전에 방문 확인 및 처리를 한다.
+- 만약 방문 처리가 필요 없고 전체 탐색을 하는 경우, stack과 queue 중 어떤 것을 사용했느냐의 차이밖에 없다.
 
 ## 참고
 - https://en.wikipedia.org/wiki/Depth-first_search
