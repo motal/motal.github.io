@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/</loc>
-    <lastmod>2020-12-04T13:50:34+09:00</lastmod>
+    <loc>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-dfs-bfs-%ED%8C%A8%ED%84%B4/</loc>
+    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/bfs/</loc>
+    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/dfs/</loc>
+    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://motal.github.io/</loc>
-    <lastmod>2020-12-04T13:50:34+09:00</lastmod>
+    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://motal.github.io/post/</loc>
-    <lastmod>2020-12-04T13:50:34+09:00</lastmod>
+    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://motal.github.io/tags/</loc>
-    <lastmod>2020-12-04T13:50:34+09:00</lastmod>
+    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://motal.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
+    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89-%ED%8C%A8%ED%84%B4/</loc>
     <lastmod>2020-12-04T13:50:34+09:00</lastmod>
   </url>
   

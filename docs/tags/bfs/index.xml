@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bfs on Doa&#39;s blog</title>
+    <link>https://motal.github.io/tags/bfs/</link>
+    <description>Recent content in bfs on Doa&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <copyright>&amp;copy; 2020. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 06 Dec 2020 10:09:23 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/bfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[알고리즘] DFS &amp; BFS 패턴</title>
+      <link>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-dfs-bfs-%ED%8C%A8%ED%84%B4/</link>
+      <pubDate>Sun, 06 Dec 2020 10:09:23 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-dfs-bfs-%ED%8C%A8%ED%84%B4/</guid>
+      <description>DFS 재귀 procedure DFS(G, v) is label v as discovered for all directed edges from v to w that are in G.adjacentEdges(v) do // 넣을 때 방문 확인 및 처리를 한다 if vertex w is not labeled as discovered then recursively call DFS(G, w) 반복 procedure DFS_iterative(G, v) is let S be a stack S.push(v) while S is not empty do v = S.pop() // 꺼낸 다음에 방문 확인 및 처리를 한다 if v is not labeled as discovered then label v as discovered for all edges from v to w in G.</description>
+    </item>
+    
+  </channel>
+</rss>
