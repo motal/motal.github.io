@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://motal.github.io/</loc>
+    <lastmod>2020-12-14T10:22:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/post/</loc>
+    <lastmod>2020-12-14T10:22:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/</loc>
+    <lastmod>2020-12-14T10:22:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/%EC%9A%A9%EC%96%B4/</loc>
+    <lastmod>2020-12-14T10:22:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/tags/%ED%88%AC%EC%9E%90/</loc>
+    <lastmod>2020-12-14T10:22:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://motal.github.io/post/%ED%88%AC%EC%9E%90%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/</loc>
+    <lastmod>2020-12-14T10:22:55+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-dfs-bfs-%ED%8C%A8%ED%84%B4/</loc>
     <lastmod>2020-12-06T10:09:23+09:00</lastmod>
   </url>
@@ -14,21 +44,6 @@
   
   <url>
     <loc>https://motal.github.io/tags/dfs/</loc>
-    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/</loc>
-    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/post/</loc>
-    <lastmod>2020-12-06T10:09:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/tags/</loc>
     <lastmod>2020-12-06T10:09:23+09:00</lastmod>
   </url>
   
@@ -49,16 +64,6 @@
   
   <url>
     <loc>https://motal.github.io/post/%ED%88%AC%EC%9E%90-%EA%B8%B0%EC%97%85-%EC%9E%AC%EB%AC%B4%EC%A0%9C%ED%91%9C%EC%99%80-%EC%86%90%EC%9D%B5%EA%B3%84%EC%82%B0%EC%84%9C-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/</loc>
-    <lastmod>2020-12-03T08:33:43+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/tags/%EC%9A%A9%EC%96%B4/</loc>
-    <lastmod>2020-12-03T08:33:43+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://motal.github.io/tags/%ED%88%AC%EC%9E%90/</loc>
     <lastmod>2020-12-03T08:33:43+09:00</lastmod>
   </url>
   
