@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 14 Dec 2020 10:22:55 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Dec 2020 20:15:23 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[알고리즘] 이진트리 Inorder Iterative</title>
+      <link>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-iterative/</link>
+      <pubDate>Wed, 16 Dec 2020 20:15:23 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-iterative/</guid>
+      <description>이런 건 그냥 외워야하나 싶다.
+type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func inorder(root *TreeNode) { var st []*TreeNode // 처음 stack에 담지 않는다 for root != nil || len(st) &amp;gt; 0 { for root != nil { st = append(st, root) root = root.Left } root = st[len(st)-1] st = st[:len(st)-1] // pop fmt.Println(root.Val) root = root.Right } } </description>
+    </item>
+    
     <item>
       <title>투자용어 정리</title>
       <link>https://motal.github.io/post/%ED%88%AC%EC%9E%90%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/</link>

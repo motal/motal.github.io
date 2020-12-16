@@ -205,6 +205,50 @@
   
     <article>
   <header>
+    <h2><a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-iterative/">[알고리즘] 이진트리 Inorder Iterative</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>16 Dec 2020, 20:15</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC">이진트리</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EB%B0%98%EB%B3%B5">반복</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  이런 건 그냥 외워야하나 싶다.
+type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func inorder(root *TreeNode) { var st []*TreeNode // 처음 stack에 담지 않는다 for root != nil || len(st) &gt; 0 { for root != nil { st = append(st, root) root = root.Left } root = st[len(st)-1] st = st[:len(st)-1] // pop fmt.Println(root.Val) root = root.Right } } 
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-dfs-bfs-%ED%8C%A8%ED%84%B4/">[알고리즘] DFS &amp; BFS 패턴</a></h2>
 
     <div class="post-meta">
