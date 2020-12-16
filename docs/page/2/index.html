@@ -206,6 +206,59 @@
   
     <article>
   <header>
+    <h2><a href="https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/">[Golang] 포인터 리시버 vs 밸류 리시버</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>26 Nov 2020, 09:38</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/sw">sw</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Value receiver와 Pointer receiver, 2가지가 receiver가 있다.
+아래와 같은 구조체가 있다고 가정하고
+type Person struct { Name string } Value receiver의 예
+func (p Person) String() string { return p.Name + &quot;!!!&quot; } Pointer receiver의 예
+func (p *Person) String() string { return p.Name + &quot;!!!&quot; } 두 가지 receiver를 언제 어떻게 사용해야하는지 헷갈려서 공부한 내용을 기록한다.
+ 우선 아래의 원칙을 알아야 한다.
+원칙1. 둘 중에 한 가지만 정의할 수 있다.
+  </p>
+
+  
+  <footer>
+    <a href="https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://motal.github.io/post/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD-%EC%82%AC%ED%9A%8C%EC%A0%81-%EB%AC%B8%EC%A0%9C%EB%93%A4/">대한민국 사회적 문제들</a></h2>
 
     <div class="post-meta">

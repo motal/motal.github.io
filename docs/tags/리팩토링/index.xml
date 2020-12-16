@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>리팩토링 on Doa&#39;s blog</title>
+    <link>https://motal.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/</link>
+    <description>Recent content in 리팩토링 on Doa&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <copyright>&amp;copy; 2020. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 16 Dec 2020 21:27:16 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[코딩] 2개의 노드 비교</title>
+      <link>https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/</link>
+      <pubDate>Wed, 16 Dec 2020 21:27:16 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/</guid>
+      <description>2개의 노트의 값이 같은지 비교하는 코드를 짜보자.
+null 처리를 포함한 간결한 코드 작성 방법 2가지를 적는다.
+1. And-Or-Value func compare(l, r *TreeNode) bool { // 2개 모두 nil 이면 같다 if l == nil &amp;amp;&amp;amp; r == nil { return true } // 위에서 2개 모두가 nil 인 경우를 이미 처리했으므로 // 하나만 nil인 경우에 해당하므로 같지 않다. if l == nil || r == nil { return false } // 최종 값 비교 return l.</description>
+    </item>
+    
+  </channel>
+</rss>

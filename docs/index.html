@@ -206,6 +206,55 @@
   
     <article>
   <header>
+    <h2><a href="https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/">[코딩] 2개의 노드 비교</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>16 Dec 2020, 21:27</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EB%85%B8%EB%93%9C%EB%B9%84%EA%B5%90">노드비교</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%BD%94%EB%93%9C%EC%9E%91%EC%84%B1">코드작성</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81">리팩토링</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  2개의 노트의 값이 같은지 비교하는 코드를 짜보자.
+null 처리를 포함한 간결한 코드 작성 방법 2가지를 적는다.
+1. And-Or-Value func compare(l, r *TreeNode) bool { // 2개 모두 nil 이면 같다 if l == nil &amp;&amp; r == nil { return true } // 위에서 2개 모두가 nil 인 경우를 이미 처리했으므로 // 하나만 nil인 경우에 해당하므로 같지 않다. if l == nil || r == nil { return false } // 최종 값 비교 return l.
+  </p>
+
+  
+  <footer>
+    <a href="https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-iterative/">[알고리즘] 이진트리 Inorder Iterative</a></h2>
 
     <div class="post-meta">
@@ -640,59 +689,6 @@ ch1 := make(chan int) // 버퍼 사이즈가 0 ch2 := make(chan int, 1024) // �
   
   <footer>
     <a href="https://motal.github.io/post/golang-stack%EA%B3%BC-queue/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/">[Golang] 포인터 리시버 vs 밸류 리시버</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>26 Nov 2020, 09:38</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/sw">sw</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Value receiver와 Pointer receiver, 2가지가 receiver가 있다.
-아래와 같은 구조체가 있다고 가정하고
-type Person struct { Name string } Value receiver의 예
-func (p Person) String() string { return p.Name + &quot;!!!&quot; } Pointer receiver의 예
-func (p *Person) String() string { return p.Name + &quot;!!!&quot; } 두 가지 receiver를 언제 어떻게 사용해야하는지 헷갈려서 공부한 내용을 기록한다.
- 우선 아래의 원칙을 알아야 한다.
-원칙1. 둘 중에 한 가지만 정의할 수 있다.
-  </p>
-
-  
-  <footer>
-    <a href="https://motal.github.io/post/golang-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%A6%AC%EC%8B%9C%EB%B2%84-vs-%EB%B0%B8%EB%A5%98-%EB%A6%AC%EC%8B%9C%EB%B2%84/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
