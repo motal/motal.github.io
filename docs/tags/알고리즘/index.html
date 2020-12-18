@@ -205,7 +205,7 @@
   
     <article>
   <header>
-    <h2><a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-iterative/">[알고리즘] 이진트리 Inorder Iterative</a></h2>
+    <h2><a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-%EC%88%9C%ED%9A%8C/">[알고리즘] 이진트리 In-order 순회</a></h2>
 
     <div class="post-meta">
 
@@ -239,10 +239,13 @@
   </header>
 
   <p>
-  이런 건 그냥 외워야하나 싶다.
-type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func inorder(root *TreeNode) { var st []*TreeNode // 처음 stack에 담지 않는다 for root != nil || len(st) &gt; 0 { for root != nil { st = append(st, root) root = root.Left } root = st[len(st)-1] st = st[:len(st)-1] // pop fmt.Println(root.Val) root = root.Right } } 
+  iterative type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func inorder(root *TreeNode) { var st []*TreeNode // 처음 stack에 담지 않는다 for root != nil || len(st) &gt; 0 { for root != nil { st = append(st, root) root = root.Left } root = st[len(st)-1] st = st[:len(st)-1] // pop fmt.Println(root.Val) root = root.Right } } recursive func inorder(root *TreeNode) []int { res := []int{} if root !
   </p>
 
+  
+  <footer>
+    <a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-%EC%88%9C%ED%9A%8C/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
 </article>
 

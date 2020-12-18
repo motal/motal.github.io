@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.78.2" />
 
-  <title>[코딩] 2개의 노드 비교 &middot; Doa&#39;s blog</title>
+  <title>[알고리즘] 이진트리 In-order 순회 &middot; Doa&#39;s blog</title>
 
     
 
@@ -194,7 +194,7 @@
 
 
 <div class="header">
-  <h1>[코딩] 2개의 노드 비교</h1>
+  <h1>[알고리즘] 이진트리 In-order 순회</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -203,7 +203,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>16 Dec 2020, 21:27</time>
+    <time>16 Dec 2020, 20:15</time>
   </div>
 
   
@@ -216,11 +216,11 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EB%85%B8%EB%93%9C%EB%B9%84%EA%B5%90">노드비교</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%BD%94%EB%93%9C%EC%9E%91%EC%84%B1">코드작성</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC">이진트리</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81">리팩토링</a>
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/%EB%B0%98%EB%B3%B5">반복</a>
     
   </div>
   
@@ -228,52 +228,54 @@
 
 </div>
 
-  <p>2개의 노트의 값이 같은지 비교하는 코드를 짜보자.<br>
-null 처리를 포함한 간결한 코드 작성 방법 2가지를 적는다.</p>
-<h2 id="1-and-or-value">1. And-Or-Value</h2>
-<pre><code>func compare(l, r *TreeNode) bool {
-    // 2개 모두 nil 이면 같다
-    if l == nil &amp;&amp; r == nil { 
-        return true
-    }
-    // 위에서 2개 모두가 nil 인 경우를 이미 처리했으므로
-    // 하나만 nil인 경우에 해당하므로 같지 않다.
-    if l == nil || r == nil {
-        return false
-    }
-
-    // 최종 값 비교
-    return l.Val == r.Val
+  <h2 id="iterative">iterative</h2>
+<pre><code>type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
-</code></pre><h2 id="2-or-value">2. Or-Value</h2>
-<pre><code>func compare(l, r *TreeNode) bool {
-    // 하나라도 nil인 경우
-    if l == nil || r == nil { 
-        // 모두 nil인 경우만 같다.
-        return l == r
+
+func inorder(root *TreeNode) {
+    var st []*TreeNode // 처음 stack에 담지 않는다
+    
+    for root != nil || len(st) &gt; 0 {
+        for root != nil {
+            st = append(st, root)
+            root = root.Left
+        }
+        root = st[len(st)-1]
+        st = st[:len(st)-1] // pop
+        
+        fmt.Println(root.Val)
+
+        root = root.Right
     }
-
-    // 최종 값 비교
-    return l.Val == r.Val
 }
-</code></pre><h3 id="주의">주의</h3>
-<p>반복문 안에서 사용하는 경우, return이 아닌 continue를 할 수도 있는데 이런 경우에는 And-Or-Value를 사용하여 각 케이스별로 처리해야 한다.<br>
-예시문제: <a href="https://leetcode.com/problems/symmetric-tree/">https://leetcode.com/problems/symmetric-tree/</a></p>
-
+</code></pre><h2 id="recursive">recursive</h2>
+<pre><code>func inorder(root *TreeNode) []int {
+    res := []int{}
+    if root != nil {
+        res = append(res, inorder(root.Left)...)
+        res = append(res, root.Val)
+        res = append(res, inorder(root.Right)...)
+    }
+    return res
+}
+</code></pre>
   
   
 <ul class="share-buttons">
-	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%25BD%2594%25EB%2594%25A9-2%25EA%25B0%259C%25EC%259D%2598-%25EB%2585%25B8%25EB%2593%259C-%25EB%25B9%2584%25EA%25B5%2590%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25ED%258A%25B8%25EB%25A6%25AC-inorder-%25EC%2588%259C%25ED%259A%258C%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%25BD%2594%25EB%2594%25A9-2%25EA%25B0%259C%25EC%259D%2598-%25EB%2585%25B8%25EB%2593%259C-%25EB%25B9%2584%25EA%25B5%2590%2f&via=HorribleGeek" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	<li><a href="https://twitter.com/intent/tweet?source=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25ED%258A%25B8%25EB%25A6%25AC-inorder-%25EC%2588%259C%25ED%259A%258C%2f&via=HorribleGeek" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%25BD%2594%25EB%2594%25A9-2%25EA%25B0%259C%25EC%259D%2598-%25EB%2585%25B8%25EB%2593%259C-%25EB%25B9%2584%25EA%25B5%2590%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	<li><a href="https://plus.google.com/share?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25ED%258A%25B8%25EB%25A6%25AC-inorder-%25EC%2588%259C%25ED%259A%258C%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%25BD%2594%25EB%2594%25A9-2%25EA%25B0%259C%25EC%259D%2598-%25EB%2585%25B8%25EB%2593%259C-%25EB%25B9%2584%25EA%25B5%2590%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	<li><a href="http://www.tumblr.com/share?v=3&u=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25ED%258A%25B8%25EB%25A6%25AC-inorder-%25EC%2588%259C%25ED%259A%258C%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%25BD%2594%25EB%2594%25A9-2%25EA%25B0%259C%25EC%259D%2598-%25EB%2585%25B8%25EB%2593%259C-%25EB%25B9%2584%25EA%25B5%2590%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	<li><a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25ED%258A%25B8%25EB%25A6%25AC-inorder-%25EC%2588%259C%25ED%259A%258C%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
 	</li>&nbsp;&nbsp;&nbsp;
-	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%25BD%2594%25EB%2594%25A9-2%25EA%25B0%259C%25EC%259D%2598-%25EB%2585%25B8%25EB%2593%259C-%25EB%25B9%2584%25EA%25B5%2590%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	<li><a href="http://www.reddit.com/submit?url=https%3a%2f%2fmotal.github.io%2fpost%2f%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598-%25EC%259D%25B4%25EC%25A7%2584%25ED%258A%25B8%25EB%25A6%25AC-inorder-%25EC%2588%259C%25ED%259A%258C%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
 	</li>
 </ul>
 
@@ -305,13 +307,13 @@ null 처리를 포함한 간결한 코드 작성 방법 2가지를 적는다.</p
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-%EC%88%9C%ED%9A%8C/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://motal.github.io/post/%ED%88%AC%EC%9E%90%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://motal.github.io/post/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC-inorder-%EC%88%9C%ED%9A%8C/">[알고리즘] 이진트리 In-order 순회</a>
+      <a href="https://motal.github.io/post/%ED%88%AC%EC%9E%90%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC/">투자용어 정리</a>
     </nav>
     
   </div>
@@ -320,8 +322,14 @@ null 처리를 포함한 간결한 코드 작성 방법 2가지를 적는다.</p
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/">[코딩] 2개의 노드 비교</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

@@ -1,5 +1,5 @@
 ---
-title: "[알고리즘] 이진트리 Inorder Iterative"
+title: "[알고리즘] 이진트리 In-order 순회"
 date: 2020-12-16T20:15:23+09:00
 draft: false
 tags: [
@@ -9,8 +9,7 @@ tags: [
 ]
 ---
 
-이런 건 그냥 외워야하나 싶다.
-
+## iterative
 ~~~
 type TreeNode struct {
 	Val   int
@@ -33,5 +32,18 @@ func inorder(root *TreeNode) {
 
         root = root.Right
     }
+}
+~~~
+
+## recursive
+~~~
+func inorder(root *TreeNode) []int {
+    res := []int{}
+    if root != nil {
+        res = append(res, inorder(root.Left)...)
+        res = append(res, root.Val)
+        res = append(res, inorder(root.Right)...)
+    }
+    return res
 }
 ~~~
