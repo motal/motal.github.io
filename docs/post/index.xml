@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 16 Dec 2020 21:27:16 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Jan 2021 11:27:30 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>정규표현식 With Golang</title>
+      <link>https://motal.github.io/post/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-with-go/</link>
+      <pubDate>Sat, 02 Jan 2021 11:27:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-with-go/</guid>
+      <description>예제코드
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;regexp&amp;quot; ) func main() { match, _ := regexp.MatchString(&amp;quot;p[a-z]+ch&amp;quot;, &amp;quot;peach&amp;quot;) fmt.Println(match) r, _ := regexp.Compile(&amp;quot;p([a-z]+)ch&amp;quot;) fmt.Println(r.MatchString(&amp;quot;peach&amp;quot;)) fmt.Println(r.FindString(&amp;quot;peach&amp;quot;)) fmt.Println(r.FindStringIndex(&amp;quot;hel peach&amp;quot;)) fmt.Println(r.FindStringSubmatch(&amp;quot;punch&amp;quot;)) fmt.Println(r.FindAllString(&amp;quot;peach punch pinch&amp;quot;, -1)) fmt.Println(r.ReplaceAllString(&amp;quot;peach po pinch&amp;quot;, &amp;quot;xxx&amp;quot;)) } 결과
+true true peach [4 9] [punch un] [peach punch pinch] xxx po xxx </description>
+    </item>
+    
     <item>
       <title>[코딩] 2개의 노드 비교</title>
       <link>https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/</link>

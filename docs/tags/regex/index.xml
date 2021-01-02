@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regex on Doa&#39;s blog</title>
+    <link>https://motal.github.io/tags/regex/</link>
+    <description>Recent content in regex on Doa&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <copyright>&amp;copy; 2020. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 02 Jan 2021 11:27:30 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/regex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>정규표현식 With Golang</title>
+      <link>https://motal.github.io/post/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-with-go/</link>
+      <pubDate>Sat, 02 Jan 2021 11:27:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-with-go/</guid>
+      <description>예제코드
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;regexp&amp;quot; ) func main() { match, _ := regexp.MatchString(&amp;quot;p[a-z]+ch&amp;quot;, &amp;quot;peach&amp;quot;) fmt.Println(match) r, _ := regexp.Compile(&amp;quot;p([a-z]+)ch&amp;quot;) fmt.Println(r.MatchString(&amp;quot;peach&amp;quot;)) fmt.Println(r.FindString(&amp;quot;peach&amp;quot;)) fmt.Println(r.FindStringIndex(&amp;quot;hel peach&amp;quot;)) fmt.Println(r.FindStringSubmatch(&amp;quot;punch&amp;quot;)) fmt.Println(r.FindAllString(&amp;quot;peach punch pinch&amp;quot;, -1)) fmt.Println(r.ReplaceAllString(&amp;quot;peach po pinch&amp;quot;, &amp;quot;xxx&amp;quot;)) } 결과
+true true peach [4 9] [punch un] [peach punch pinch] xxx po xxx </description>
+    </item>
+    
+  </channel>
+</rss>

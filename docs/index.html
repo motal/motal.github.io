@@ -206,6 +206,53 @@
   
     <article>
   <header>
+    <h2><a href="https://motal.github.io/post/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-with-go/">정규표현식 With Golang</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>02 Jan 2021, 11:27</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/sw">sw</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/regex">regex</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  예제코드
+package main import ( &quot;fmt&quot; &quot;regexp&quot; ) func main() { match, _ := regexp.MatchString(&quot;p[a-z]+ch&quot;, &quot;peach&quot;) fmt.Println(match) r, _ := regexp.Compile(&quot;p([a-z]+)ch&quot;) fmt.Println(r.MatchString(&quot;peach&quot;)) fmt.Println(r.FindString(&quot;peach&quot;)) fmt.Println(r.FindStringIndex(&quot;hel peach&quot;)) fmt.Println(r.FindStringSubmatch(&quot;punch&quot;)) fmt.Println(r.FindAllString(&quot;peach punch pinch&quot;, -1)) fmt.Println(r.ReplaceAllString(&quot;peach po pinch&quot;, &quot;xxx&quot;)) } 결과
+true true peach [4 9] [punch un] [peach punch pinch] xxx po xxx 
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://motal.github.io/post/%EC%BD%94%EB%94%A9-2%EA%B0%9C%EC%9D%98-%EB%85%B8%EB%93%9C-%EB%B9%84%EA%B5%90/">[코딩] 2개의 노드 비교</a></h2>
 
     <div class="post-meta">
@@ -640,58 +687,6 @@ ch1 := make(chan int) // 버퍼 사이즈가 0 ch2 := make(chan int, 1024) // �
   
   <footer>
     <a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://motal.github.io/post/golang-stack%EA%B3%BC-queue/">[Golang] Stack과 Queue</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>28 Nov 2020, 22:58</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/sw">sw</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Golang에서 Stack과 Queue 자료구조를 사용해보자.
-다행히 Slice만으로도 두 가지 용도로 사용할 수 있다.
- Stack 코드
-// push stack := []int{1, 2, 3} stack = append(stack, 4) stack = append(stack, 5, 6) fmt.Println(stack) // pop val, stack := stack[len(stack)-1], stack[:len(stack)-1] fmt.Println(stack, val)  결과
-[1 2 3 4 5 6] [1 2 3 4 5] 6  Queue 코드
-// enqueue queue := []int{1, 2, 3} queue = append(queue, 4) fmt.
-  </p>
-
-  
-  <footer>
-    <a href="https://motal.github.io/post/golang-stack%EA%B3%BC-queue/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

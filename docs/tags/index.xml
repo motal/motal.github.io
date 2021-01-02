@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 16 Dec 2020 21:27:16 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Jan 2021 11:27:30 +0900</lastBuildDate><atom:link href="https://motal.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>https://motal.github.io/tags/go/</link>
+      <pubDate>Sat, 02 Jan 2021 11:27:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://motal.github.io/tags/golang/</link>
+      <pubDate>Sat, 02 Jan 2021 11:27:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regex</title>
+      <link>https://motal.github.io/tags/regex/</link>
+      <pubDate>Sat, 02 Jan 2021 11:27:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sw</title>
+      <link>https://motal.github.io/tags/sw/</link>
+      <pubDate>Sat, 02 Jan 2021 11:27:30 +0900</pubDate>
+      
+      <guid>https://motal.github.io/tags/sw/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>노드비교</title>
       <link>https://motal.github.io/tags/%EB%85%B8%EB%93%9C%EB%B9%84%EA%B5%90/</link>
@@ -104,33 +140,6 @@
       <pubDate>Fri, 04 Dec 2020 13:50:34 +0900</pubDate>
       
       <guid>https://motal.github.io/tags/%EC%9D%B4%EC%A7%84%EA%B2%80%EC%83%89/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://motal.github.io/tags/go/</link>
-      <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
-      
-      <guid>https://motal.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://motal.github.io/tags/golang/</link>
-      <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
-      
-      <guid>https://motal.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sw</title>
-      <link>https://motal.github.io/tags/sw/</link>
-      <pubDate>Mon, 30 Nov 2020 11:07:30 +0900</pubDate>
-      
-      <guid>https://motal.github.io/tags/sw/</guid>
       <description></description>
     </item>
     
