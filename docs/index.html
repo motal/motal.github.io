@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <title>Doa&#39;s blog</title>
 
@@ -203,6 +203,47 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://motal.github.io/post/leetcode-my-calendar-ii/">Leetcode - My Calendar II</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>22 Aug 2021, 12:35</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  문제 내용 https://leetcode.com/problems/my-calendar-ii/
+스케줄이 동시에 3개가 겹치는지를 판단해야하는 문제
+솔루션 접근1 종료 시간을 기준으로 정렬을 해서 바로 앞과 앞앞을 비교해면 되지 않을까 생각해봄.
+경우의 수가 많아져서 이 방법은 아니다라고 판단.
+접근2 힌트를 읽어봄.
+음 스케줄과 겹친 스케줄, 2개를 각각 보관하는 방법.
+2개의 스케줄이 겹치냐를 판단하는 코드가 헷갈림 (-_- 미치겠다)
+if (a.start &lt; b.end &amp;&amp; b.start &lt; a.end) { // 겹친다 } 위 코드를 이해하는데 한참 생각했다.
+접근3 솔루션 읽고 한참 생각했다.
+  </p>
+
+  
+  <footer>
+    <a href="https://motal.github.io/post/leetcode-my-calendar-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
@@ -639,59 +680,6 @@ Effective java를 보면 &lsquo;상속 대신 조합(composition)을 하라&rsqu
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/">[Golang] Goroutine과 Channel</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>28 Nov 2020, 23:30</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/sw">sw</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Goroutine goroutine은 경량 스레드이다.
-(Green thread 혹은 light-weight thread 라고도 부른다)
- green threads are threads that are scheduled by a runtime library or virtual machine (VM) instead of natively by the underlying operating system (OS). - Wikipedia
- Channel channel은 데이터를 보내는 통로이다.
-자료구조 queue의 목적으로 써도 문제가 없다.
-버퍼 사이즈를 명시하지 않으면 사이즈가 0이다.
-ch1 := make(chan int) // 버퍼 사이즈가 0 ch2 := make(chan int, 1024) // 버퍼 사이즈가 1024  동작 방식 처음 goroutine을 사용하다보면 아래와 같은 에러를 자주 보게 된다.
-  </p>
-
-  
-  <footer>
-    <a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -700,7 +688,7 @@ ch1 := make(chan int) // 버퍼 사이즈가 0 ch2 := make(chan int, 1024) // �
   
   <i class="fa fa-chevron-left"></i>
   
-  <span>&nbsp;1 / 2&nbsp;</span>
+  <span>&nbsp;1 / 3&nbsp;</span>
   
   <a href="https://motal.github.io/page/2/"><i class="fa fa-chevron-right"></i></a>
   

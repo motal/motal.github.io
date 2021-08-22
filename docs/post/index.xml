@@ -7,7 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 02 Jan 2021 11:27:30 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Aug 2021 12:35:08 +0900</lastBuildDate><atom:link href="https://motal.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode - My Calendar II</title>
+      <link>https://motal.github.io/post/leetcode-my-calendar-ii/</link>
+      <pubDate>Sun, 22 Aug 2021 12:35:08 +0900</pubDate>
+      
+      <guid>https://motal.github.io/post/leetcode-my-calendar-ii/</guid>
+      <description>문제 내용 https://leetcode.com/problems/my-calendar-ii/
+스케줄이 동시에 3개가 겹치는지를 판단해야하는 문제
+솔루션 접근1 종료 시간을 기준으로 정렬을 해서 바로 앞과 앞앞을 비교해면 되지 않을까 생각해봄.
+경우의 수가 많아져서 이 방법은 아니다라고 판단.
+접근2 힌트를 읽어봄.
+음 스케줄과 겹친 스케줄, 2개를 각각 보관하는 방법.
+2개의 스케줄이 겹치냐를 판단하는 코드가 헷갈림 (-_- 미치겠다)
+if (a.start &amp;lt; b.end &amp;amp;&amp;amp; b.start &amp;lt; a.end) { // 겹친다 } 위 코드를 이해하는데 한참 생각했다.
+접근3 솔루션 읽고 한참 생각했다.</description>
+    </item>
+    
     <item>
       <title>정규표현식 With Golang</title>
       <link>https://motal.github.io/post/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-with-go/</link>

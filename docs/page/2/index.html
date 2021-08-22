@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <title>Doa&#39;s blog</title>
 
@@ -203,6 +203,59 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/">[Golang] Goroutine과 Channel</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>28 Nov 2020, 23:30</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/go">go</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://motal.github.io/tags/sw">sw</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Goroutine goroutine은 경량 스레드이다.
+(Green thread 혹은 light-weight thread 라고도 부른다)
+ green threads are threads that are scheduled by a runtime library or virtual machine (VM) instead of natively by the underlying operating system (OS). - Wikipedia
+ Channel channel은 데이터를 보내는 통로이다.
+자료구조 queue의 목적으로 써도 문제가 없다.
+버퍼 사이즈를 명시하지 않으면 사이즈가 0이다.
+ch1 := make(chan int) // 버퍼 사이즈가 0 ch2 := make(chan int, 1024) // 버퍼 사이즈가 1024  동작 방식 처음 goroutine을 사용하다보면 아래와 같은 에러를 자주 보게 된다.
+  </p>
+
+  
+  <footer>
+    <a href="https://motal.github.io/post/golang-goroutine%EA%B3%BC-channel/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
@@ -604,41 +657,6 @@ Follow the following steps:
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://motal.github.io/post/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>10 Mar 2014, 00:00</time>
-  </div>
-
-  
-
-  
-
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png  should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.
-  </p>
-
-  
-  <footer>
-    <a href="https://motal.github.io/post/migrate-from-jekyll/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -647,9 +665,9 @@ Follow the following steps:
   
   <a href="https://motal.github.io/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;2 / 2&nbsp;</span>
+  <span>&nbsp;2 / 3&nbsp;</span>
   
-  <i class="fa fa-chevron-right"></i>
+  <a href="https://motal.github.io/page/3/"><i class="fa fa-chevron-right"></i></a>
   
 </nav>
 
